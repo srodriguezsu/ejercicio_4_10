@@ -1,11 +1,15 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class infoEstudiante extends JDialog {
-    private JPanel contentPane;
+    public JPanel contentPane;
     private JButton buttonOK;
-    private JButton buttonCancel;
+    private JLabel outInscripcion;
+    private JLabel outNombre;
+    private JLabel outMatricula;
+    NumberFormat pesos = NumberFormat.getCurrencyInstance();
 
     public infoEstudiante() {
         setContentPane(contentPane);
@@ -24,10 +28,14 @@ public class infoEstudiante extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        infoEstudiante dialog = new infoEstudiante();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+    public void setInscipcion(int inscripcion){
+        outInscripcion.setText(String.valueOf(inscripcion));
+    }
+
+    public void setNombre(String nombre){
+        outNombre.setText(nombre);
+    }
+    public void setMatricula(int matricula){
+        outMatricula.setText(pesos.format(matricula));
     }
 }

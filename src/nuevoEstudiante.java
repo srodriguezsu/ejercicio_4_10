@@ -12,14 +12,23 @@ public class nuevoEstudiante extends JFrame {
 
     public nuevoEstudiante(){
 
-        byte estrato = Byte.parseByte(String.valueOf(inEstrato.getSelectedItem()));
-        int inscripcion = (int) inInscripcion.getValue();
-        int patrimonio = (int) inPatrimonio.getValue();
+
 
         btnLiquidar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                byte estrato = Byte.parseByte(String.valueOf(inEstrato.getSelectedItem()));
+                int inscripcion = (int) inInscripcion.getValue();
+                int patrimonio = (int) inPatrimonio.getValue();
                 Estudiante estudiante = new Estudiante(inscripcion, inNombre.getText(), patrimonio, estrato);
+                infoEstudiante info = new infoEstudiante();
+                info.setInscipcion(estudiante.getNumeroInscripcion());
+                info.setNombre(estudiante.getNombre());
+                info.setMatricula(estudiante.getMatricula());
+                info.setContentPane(info.contentPane);
+                info.setSize(500,250);
+                info.setVisible(true);
+
 
 
             }

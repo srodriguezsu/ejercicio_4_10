@@ -48,4 +48,6 @@ public class Estudiante {
     public int getPatrimonio(){
         return patrimonio;
     }
+
+
 }
